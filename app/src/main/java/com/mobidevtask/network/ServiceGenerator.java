@@ -20,7 +20,7 @@ public final class ServiceGenerator {
 
     public static final String DEBUG_API_BASE_URL = "http://pokeapi.co/api/v2/";
     public static final String DEBUG_API_BASE_URL_FOR_IMAGES = "http://pokeapi.co/api/v2/";
-    public static final String PRODUCTION_API_BASE_URL = "";
+    public static final String PRODUCTION_API_BASE_URL = "http://pokeapi.co/api/v2/";
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
     private static Retrofit retrofit;

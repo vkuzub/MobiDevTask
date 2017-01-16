@@ -11,9 +11,9 @@ import java.util.Map;
 
 public abstract class BaseListPresenter<V extends BaseListMVP.View> extends BasePresenter<V> implements BaseListMVP.Presenter<V> {
 
-    public static final int FIRST_PAGE = 1;
-    public static final int EVENTS_LIMIT = 5;
-    protected int currentPage = 1;
+    public static final int FIRST_PAGE = 0;
+    public static final int EVENTS_LIMIT = 10;
+    protected int currentPage = 0;
     protected int totalCount;
 
     @Override
@@ -23,9 +23,9 @@ public abstract class BaseListPresenter<V extends BaseListMVP.View> extends Base
     public void onLoadDataSuccess(BaseListResponse response, boolean pullToRefresh, boolean paginate) {
         if (isViewAttached()) {
             if (response != null) {
-                getView().fillData(response.getData());
+                getView().fillData(response.getResults());
 
-                setTotalCount(response.getTotal());
+                setTotalCount(response.getCount());
 
                 if (paginate) {
                     getView().showPagination(false);
@@ -42,8 +42,23 @@ public abstract class BaseListPresenter<V extends BaseListMVP.View> extends Base
         }
     }
 
+    protected void showLoading(boolean pullToRefresh, boolean paginate){
+        if (paginate) {
+            setCurrentPage(getCurrentPage() + 1);
+            getView().showPagination(true);
+            currentPage = getCurrentPage();
+        } else {
+            if (pullToRefresh) {
+                getView().showSrl(pullToRefresh);
+                setCurrentPage(FIRST_PAGE);
+            } else {
+                ((HideShowContentSupport) getView()).showLoading();
+            }
+        }
+    }
+
     @Override
-    public abstract Map<String, String> createQueries(int limit, int page);
+    public abstract Map<String, String> createQueries(int limit, int offset);
 
     @Override
     public boolean hasMoreItems() {

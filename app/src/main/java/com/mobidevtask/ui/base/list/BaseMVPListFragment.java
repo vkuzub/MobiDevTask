@@ -36,9 +36,9 @@ public abstract class BaseMVPListFragment<V extends BaseListMVP.View> extends Ba
     @BindView(R.id.contentView)
     protected FrameLayout contentView;
 
-//    @BindView(R.id.rvItems)
+    @BindView(R.id.rvItems)
     protected RecyclerView rvItems;
-//    @BindView(R.id.srlRefresh)
+    @BindView(R.id.srlRefresh)
     protected SwipeRefreshLayout srlRefresh;
 
     protected EndlessRecyclerViewScrollListener listener;
