@@ -1,7 +1,6 @@
 package com.mobidevtask.ui.base.list;
 
 
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -22,12 +21,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public abstract class BaseMVPListFragment<V extends BaseListMVP.View> extends BaseMVPFragment<V, BaseListPresenter<V>> implements BaseListMVP.View {
-
-    public static final String FRAGMENT_TAG = "translations";
 
     @BindView(R.id.loadingView)
     protected ProgressBar loadingView;

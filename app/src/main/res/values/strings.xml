@@ -13,4 +13,7 @@
     <string name="template" translatable="false">template</string>
     <string name="pokemons">Pokemons</string>
     <string name="berries">Berries</string>
+    <string name="title_activity_info_pokemon">Pokemon info</string>
+    <string name="weight">weight</string>
+    <string name="abilities">abilities</string>
 </resources>

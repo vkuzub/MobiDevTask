@@ -8,9 +8,7 @@ import com.mobidevtask.App;
 import com.mobidevtask.R;
 import com.mobidevtask.ui.base.mvp.BaseMvpViewFragment;
 
-/**
- * Created by Vyacheslav on 12.09.2016.
- */
+
 public class CommonViewState implements RestorableViewState<BaseMvpViewFragment> {
 
     private static final int STATE_SHOW_CONTENT = 0;

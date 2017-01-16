@@ -9,9 +9,7 @@ import com.mobidevtask.ui.base.RxSupport;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
-/**
- * Created by Vyacheslav on 26.12.2016.
- */
+
 
 public class BasePresenter<V extends MvpView> extends MvpBasePresenter<V> implements RxSupport {
 

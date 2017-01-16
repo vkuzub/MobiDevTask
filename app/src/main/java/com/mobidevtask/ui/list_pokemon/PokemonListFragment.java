@@ -6,20 +6,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.mobidevtask.R;
+import com.mobidevtask.network.pojo.PokemonItem;
 import com.mobidevtask.ui.base.list.BaseListPresenter;
 import com.mobidevtask.ui.base.list.BaseMVPListFragment;
+import com.mobidevtask.ui.info_pokemon.InfoPokemonActivity;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PokemonListFragment extends BaseMVPListFragment<PokemonListMVP.View> {
+public class PokemonListFragment extends BaseMVPListFragment<PokemonListMVP.View> implements PokemonListMVP.View {
 
-    public static final String FRAGMENT_TAG = "products_new";
-
-    public PokemonListFragment() {
-        // Required empty public constructor
-    }
+    public static final String FRAGMENT_TAG = "pokemon_list";
 
     @Override
     public BaseListPresenter<PokemonListMVP.View> createPresenter() {
@@ -33,7 +31,10 @@ public class PokemonListFragment extends BaseMVPListFragment<PokemonListMVP.View
 
     @Override
     public void onRvItemClick(RecyclerView recyclerView, int position, View v) {
-
+        if (position != -1) {
+            PokemonItem item = (PokemonItem) adapter.getData().get(position);
+            startActivity(InfoPokemonActivity.getStartIntent(getActivity(), item.getUrlId()));
+        }
     }
 
 

@@ -5,12 +5,12 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".App">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".ui.list_pokemon.MainActivity"
             android:label="@string/app_name"
@@ -20,6 +20,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.info_pokemon.InfoPokemonActivity"
+            android:label="@string/title_activity_info_pokemon"
+            android:parentActivityName=".ui.list_pokemon.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mobidevtask.ui.list_pokemon.MainActivity"/>
         </activity>
     </application>
 

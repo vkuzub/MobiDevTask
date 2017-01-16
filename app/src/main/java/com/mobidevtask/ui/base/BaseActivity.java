@@ -12,9 +12,7 @@ import com.mobidevtask.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by Vyacheslav on 29.11.2016.
- */
+
 
 public abstract class BaseActivity extends AppCompatActivity {
 

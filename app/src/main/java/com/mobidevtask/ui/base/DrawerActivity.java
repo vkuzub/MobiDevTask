@@ -22,9 +22,7 @@ import com.mobidevtask.ui.list_pokemon.MainActivity;
 import butterknife.ButterKnife;
 
 
-/**
- * Created by Vyacheslav on 12.09.2016.
- */
+
 public abstract class DrawerActivity extends BaseActivity implements Drawer.OnDrawerListener {
 
     private static final int NAVDRAWER_LAUNCH_DELAY = 250;
@@ -106,15 +104,15 @@ public abstract class DrawerActivity extends BaseActivity implements Drawer.OnDr
         drawer = new DrawerBuilder(this).
                 withToolbar(mToolbar).
                 withActionBarDrawerToggleAnimated(true).
-        withSliderBackgroundColor(ContextCompat.getColor(this, R.color.primary)).
-                        addDrawerItems(
-                                pokemonsDrawerItem,
-                                berriesDrawerItem
-                        ).
-                        withOnDrawerListener(this).
-                        withAccountHeader(headerResult).
-                        withOnDrawerItemClickListener(OnDrawerItemClickListenerImpl).
-                        build();
+                withSliderBackgroundColor(ContextCompat.getColor(this, R.color.primary)).
+                addDrawerItems(
+                        pokemonsDrawerItem,
+                        berriesDrawerItem
+                ).
+                withOnDrawerListener(this).
+                withAccountHeader(headerResult).
+                withOnDrawerItemClickListener(OnDrawerItemClickListenerImpl).
+                build();
 
         drawer.setSelection(getSelfNavDrawerItem(), false);
 
@@ -138,6 +136,7 @@ public abstract class DrawerActivity extends BaseActivity implements Drawer.OnDr
         berriesDrawerItem =
                 new StyledPrimaryDrawerItem().
                         withName(R.string.berries).
+                        withEnabled(false).
                         withIdentifier(UNKNOWN_ACTIVITY);
 
     }
@@ -151,7 +150,7 @@ public abstract class DrawerActivity extends BaseActivity implements Drawer.OnDr
                 withActivity(this).
                 withCompactStyle(true).
                 withTranslucentStatusBar(true).
-        addProfiles(profile);
+                addProfiles(profile);
         headerResult = builder.build();
 
     }

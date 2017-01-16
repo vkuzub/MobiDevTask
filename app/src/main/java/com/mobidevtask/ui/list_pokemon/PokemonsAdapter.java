@@ -14,10 +14,6 @@ import com.mobidevtask.utils.CommonDataExtractUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by Vyacheslav on 16.01.2017.
- */
-
 public class PokemonsAdapter extends BaseListAdapter {
 
     @Override

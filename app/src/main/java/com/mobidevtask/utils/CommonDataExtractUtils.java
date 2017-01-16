@@ -16,9 +16,7 @@ import java.util.Locale;
 
 public class CommonDataExtractUtils {
 
-    //                                                  2016-12-29T13:50:38+02:00
-//    public static final String TIME_INPUT_FORMAT = "yyyy-MM-dd'T'HH:mm:ss+SS:SS";
-//                                                    2017-01-11 16:11:26
+
     public static final String TIME_INPUT_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static final String TIME_OUTPUT_DATE = "dd.MM.yyyy";
     public static final String TIME_OUTPUT_FORMAT_BIRTHDAY = "yyyy-MM-dd'T'HH:mm:ss+SS:SS";
@@ -65,12 +63,4 @@ public class CommonDataExtractUtils {
         }
         return App.getContext().getString(R.string.undefined);
     }
-
-
-//    public static String getImageUrl(@Nullable Image cover) {
-//        if (cover != null) {
-//            return com.k_3soft.global2.network.ServiceGenerator.DEBUG_API_BASE_URL_FOR_IMAGES + cover.getIdImage() + "-medium_default/img.jpg";
-//        }
-//        return "";
-//    }
 }

@@ -1,16 +1,12 @@
 package com.mobidevtask.ui.list_pokemon;
 
+import com.mobidevtask.R;
+import com.mobidevtask.network.pojo.PokemonItem;
 import com.mobidevtask.ui.base.HideShowContentSupport;
 import com.mobidevtask.ui.base.list.BaseListPresenter;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static com.mobidevtask.utils.RxUtils.applySchedulers;
 
-/**
- * Created by Vyacheslav on 16.01.2017.
- */
 
 public class PokemonListPresenter extends BaseListPresenter<PokemonListMVP.View> {
 
@@ -20,25 +16,25 @@ public class PokemonListPresenter extends BaseListPresenter<PokemonListMVP.View>
             showLoading(pullToRefresh, paginate);
 
             rxAddSubscription(getClient()
-                    .loadPokemonsList(createQueries(EVENTS_LIMIT, getCurrentPage() * EVENTS_LIMIT)).compose(applySchedulers())
+                    .loadPokemonsList(createQueries(EVENTS_LIMIT, getCurrentPage() * EVENTS_LIMIT))
+                    .map(pokemonsResponse -> {
+                        for (PokemonItem item : pokemonsResponse.getResults()) {
+                            String[] split = item.getUrl().split("/");
+                            long urlId = Long.parseLong(split[split.length - 1]);
+                            item.setUrlId(urlId);
+                        }
+                        return pokemonsResponse;
+                    })
+                    .compose(applySchedulers())
                     .subscribe(pokemonsResponse -> {
                                 onLoadDataSuccess(pokemonsResponse, pullToRefresh, paginate);
                             },
                             throwable -> {
-                                ((HideShowContentSupport) getView()).showError(null);
-                                throwable.printStackTrace();
+                                ((HideShowContentSupport) getView()).showError(R.string.oops_something_went_wrong);
                             },
                             () -> {
                             }));
         }
-    }
-
-    @Override
-    public Map<String, String> createQueries(int limit, int page) {
-        HashMap<String, String> query = new HashMap<>();
-        query.put("limit", String.valueOf(limit));
-        query.put("offset", String.valueOf(page));
-        return query;
     }
 
 }

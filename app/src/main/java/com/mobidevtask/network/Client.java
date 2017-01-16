@@ -1,6 +1,7 @@
 package com.mobidevtask.network;
 
 
+import com.mobidevtask.network.pojo.PokemonInfoResponse;
 import com.mobidevtask.network.pojo.PokemonsResponse;
 
 import java.util.Map;
@@ -16,5 +17,5 @@ public interface Client {
     Observable<PokemonsResponse> loadPokemonsList(@QueryMap Map<String, String> filter);
 
     @GET("pokemon/{id}")
-    Observable<Object> loadPokemonById(@Path("id") long id);
+    Observable<PokemonInfoResponse> loadPokemonById(@Path("id") long id);
 }

@@ -15,6 +15,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.mobidevtask.R;
+import com.mobidevtask.network.pojo.Sprite;
 
 public class GlideCommon {
 
@@ -58,6 +59,16 @@ public class GlideCommon {
                         return false;
                     }
                 }).into(imageView);
+    }
+
+    public static void load(@NonNull Context context, @NonNull ImageView imageView, @Nullable ProgressBar progressBar,
+                            @Nullable Sprite sprite, boolean centerCrop, @Nullable Transformation transformation) {
+        if (sprite != null) {
+            load(context, imageView, progressBar, sprite.getFrontDefault(), centerCrop, transformation);
+        } else {
+            load(context, imageView, progressBar, "", centerCrop, transformation);
+        }
+
     }
 
 }

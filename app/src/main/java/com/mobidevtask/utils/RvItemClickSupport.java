@@ -14,7 +14,7 @@ public class RvItemClickSupport {
         public void onClick(View v) {
             if (mOnItemClickListener != null) {
                 RecyclerView.ViewHolder holder = mRecyclerView.getChildViewHolder(v);
-                mOnItemClickListener.onItemClicked(mRecyclerView, holder.getAdapterPosition(), v);
+                mOnItemClickListener.onItemClicked(mRecyclerView, holder.getLayoutPosition(), v);
             }
         }
     };
@@ -23,7 +23,7 @@ public class RvItemClickSupport {
         public boolean onLongClick(View v) {
             if (mOnItemLongClickListener != null) {
                 RecyclerView.ViewHolder holder = mRecyclerView.getChildViewHolder(v);
-                return mOnItemLongClickListener.onItemLongClicked(mRecyclerView, holder.getAdapterPosition(), v);
+                return mOnItemLongClickListener.onItemLongClicked(mRecyclerView, holder.getLayoutPosition(), v);
             }
             return false;
         }

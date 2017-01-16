@@ -25,9 +25,6 @@ import icepick.Icepick;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
-/**
- * Created by Vyacheslav on 29.11.2016.
- */
 
 public abstract class BaseMVPFragment<V extends MvpView, P extends MvpPresenter<V>> extends MvpViewStateFragment<V, P> implements BaseMvpViewFragment {
 

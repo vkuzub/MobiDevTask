@@ -7,9 +7,7 @@ import com.mobidevtask.ui.base.PaginateAdapterSupport;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Vyacheslav on 27.12.2016.
- */
+
 
 public abstract class BaseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements PaginateAdapterSupport {
 

@@ -3,11 +3,10 @@ package com.mobidevtask.ui.base.list;
 import com.mobidevtask.ui.base.HideShowContentSupport;
 import com.mobidevtask.ui.base.mvp.BasePresenter;
 
+import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Vyacheslav on 28.12.2016.
- */
+
 
 public abstract class BaseListPresenter<V extends BaseListMVP.View> extends BasePresenter<V> implements BaseListMVP.Presenter<V> {
 
@@ -58,7 +57,12 @@ public abstract class BaseListPresenter<V extends BaseListMVP.View> extends Base
     }
 
     @Override
-    public abstract Map<String, String> createQueries(int limit, int offset);
+    public Map<String, String> createQueries(int limit, int page) {
+        HashMap<String, String> query = new HashMap<>();
+        query.put("limit", String.valueOf(limit));
+        query.put("offset", String.valueOf(page));
+        return query;
+    }
 
     @Override
     public boolean hasMoreItems() {

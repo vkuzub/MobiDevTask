@@ -1,31 +1,28 @@
 package com.mobidevtask.ui.base.fullinfo;
 
 import com.hannesdorfmann.mosby.mvp.MvpPresenter;
-import com.hannesdorfmann.mosby.mvp.MvpView;
-import com.mobidevtask.ui.base.list.BaseListItem;
+import com.mobidevtask.ui.base.mvp.BaseMvpViewFragment;
 
 
-/**
- * Created by Vyacheslav on 03.01.2017.
- */
+
 
 public interface BaseFullInfoMVP {
 
-    interface View extends MvpView {
+    interface View extends BaseMvpViewFragment {
 
-        void fillData(BaseListItem response);
+        void fillData(BaseFullInfoResponse response);
 
-        void setItemId(int id);
+        void setItemId(long id);
 
-        int getItemId();
+        long getItemId();
 
     }
 
     interface Presenter<V extends View> extends MvpPresenter<V> {
 
-        void loadData(int id);
+        void loadData(long id);
 
-        void onDataLoadSuccess(BaseListItem response);
+        void onDataLoadSuccess(BaseFullInfoResponse response);
 
     }
 

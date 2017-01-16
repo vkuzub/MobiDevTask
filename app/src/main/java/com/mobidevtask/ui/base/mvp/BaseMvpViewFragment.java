@@ -7,9 +7,7 @@ import com.mobidevtask.ui.base.RxSupport;
 import com.mobidevtask.ui.base.ShowResponseSupport;
 
 
-/**
- * Created by Vyacheslav on 25.09.2016.
- */
+
 
 public interface BaseMvpViewFragment extends MvpView,
         HideShowContentSupport, IcepickSupport, ShowResponseSupport, RxSupport {

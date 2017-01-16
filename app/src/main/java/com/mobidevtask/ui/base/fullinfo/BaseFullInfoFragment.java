@@ -9,9 +9,7 @@ import com.mobidevtask.ui.base.BaseMVPFragment;
 
 import butterknife.BindView;
 
-/**
- * Created by Vyacheslav on 03.01.2017.
- */
+
 
 public abstract class BaseFullInfoFragment<V extends BaseFullInfoMVP.View> extends BaseMVPFragment<V, BaseFullInfoPresenter<V>> implements BaseFullInfoMVP.View {
 
@@ -22,16 +20,16 @@ public abstract class BaseFullInfoFragment<V extends BaseFullInfoMVP.View> exten
     @BindView(R.id.contentView)
     protected View contentView;
 
-    private int itemId;
+    private long itemId;
 
 
     @Override
-    public int getItemId() {
+    public long getItemId() {
         return itemId;
     }
 
     @Override
-    public void setItemId(int itemId) {
+    public void setItemId(long itemId) {
         this.itemId = itemId;
     }
 

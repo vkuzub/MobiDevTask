@@ -5,9 +5,7 @@ import com.mobidevtask.ui.base.list.BaseListItem;
 
 import java.util.List;
 
-/**
- * Created by Vyacheslav on 14.11.2016.
- */
+
 
 public interface PaginateAdapterSupport {
 

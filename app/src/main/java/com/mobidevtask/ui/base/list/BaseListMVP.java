@@ -8,9 +8,7 @@ import com.hannesdorfmann.mosby.mvp.MvpView;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Vyacheslav on 28.12.2016.
- */
+
 
 public interface BaseListMVP {
 

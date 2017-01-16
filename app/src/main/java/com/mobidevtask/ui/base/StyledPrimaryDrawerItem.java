@@ -2,9 +2,7 @@ package com.mobidevtask.ui.base;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mobidevtask.R;
 
-/**
- * Created by Vyacheslav on 19.09.2016.
- */
+
 public class StyledPrimaryDrawerItem extends PrimaryDrawerItem {
 
     public StyledPrimaryDrawerItem() {

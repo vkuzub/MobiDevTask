@@ -2,9 +2,7 @@ package com.mobidevtask.ui.base.list;
 
 import java.util.List;
 
-/**
- * Created by Vyacheslav on 29.12.2016.
- */
+
 
 public class BaseListResponse<T extends BaseListItem> {
 
