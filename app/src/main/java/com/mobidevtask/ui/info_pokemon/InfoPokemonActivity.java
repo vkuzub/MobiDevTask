@@ -26,7 +26,10 @@ public class InfoPokemonActivity extends BaseActivity {
                 long id = getIntent().getLongExtra(FULL_ITEM_ID_EXTRA, 0);
                 ((InfoPokemonFragment) fragment).setItemId(id);
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.flContainter, fragment, InfoPokemonFragment.FRAGMENT_TAG).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flContainter, fragment, InfoPokemonFragment.FRAGMENT_TAG)
+                    .commit();
         }
     }
 

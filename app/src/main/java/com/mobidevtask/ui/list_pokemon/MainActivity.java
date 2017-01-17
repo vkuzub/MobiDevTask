@@ -28,6 +28,7 @@ public class MainActivity extends DrawerActivity {
                     .beginTransaction()
                     .replace(R.id.flContainter, fragment, PokemonListFragment.FRAGMENT_TAG)
                     .commit();
+
         }
     }
 }

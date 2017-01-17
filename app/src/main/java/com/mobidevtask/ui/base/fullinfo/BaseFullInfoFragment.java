@@ -8,7 +8,7 @@ import com.mobidevtask.R;
 import com.mobidevtask.ui.base.BaseMVPFragment;
 
 import butterknife.BindView;
-
+import icepick.State;
 
 
 public abstract class BaseFullInfoFragment<V extends BaseFullInfoMVP.View> extends BaseMVPFragment<V, BaseFullInfoPresenter<V>> implements BaseFullInfoMVP.View {
@@ -20,7 +20,8 @@ public abstract class BaseFullInfoFragment<V extends BaseFullInfoMVP.View> exten
     @BindView(R.id.contentView)
     protected View contentView;
 
-    private long itemId;
+    @State
+    protected long itemId;
 
 
     @Override

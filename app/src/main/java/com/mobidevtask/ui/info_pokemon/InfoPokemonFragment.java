@@ -17,6 +17,7 @@ import com.mobidevtask.utils.CommonDataExtractUtils;
 import com.mobidevtask.utils.GlideCommon;
 
 import butterknife.BindView;
+import icepick.State;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +38,8 @@ public class InfoPokemonFragment extends BaseFullInfoFragment<InfoPokemonMVP.Vie
     @BindView(R.id.tvWeight)
     TextView tvWeight;
 
+    @State
+    PokemonInfoResponse response;
 
     public InfoPokemonFragment() {
         // Required empty public constructor
@@ -47,24 +50,31 @@ public class InfoPokemonFragment extends BaseFullInfoFragment<InfoPokemonMVP.Vie
         return new InfoPokemonPresenter();
     }
 
-
     @Override
     public int getLayoutId() {
         return R.layout.fragment_info_pokemon;
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        if (response != null) {
+            fillData(response);
+        }
+    }
+
+    @Override
     public void fillData(BaseFullInfoResponse response) {
-        PokemonInfoResponse castedResponse = (PokemonInfoResponse) response;
-        tvWeight.setText(String.valueOf(castedResponse.getWeight()));
-        if (!CollectionUtils.isNullOrEmpty(castedResponse.getAbilities())) {
-            tvAbilities.setText(String.valueOf(castedResponse.getAbilities().size()));
+        this.response = (PokemonInfoResponse) response;
+        tvWeight.setText(String.valueOf(this.response.getWeight()));
+        if (!CollectionUtils.isNullOrEmpty(this.response.getAbilities())) {
+            tvAbilities.setText(String.valueOf(this.response.getAbilities().size()));
         } else {
             tvAbilities.setText(String.valueOf(0));
         }
-        tvName.setText(CommonDataExtractUtils.getStringValue(castedResponse.getName()));
+        tvName.setText(CommonDataExtractUtils.getStringValue(this.response.getName()));
 
-        GlideCommon.load(getActivity(), ivLogo, pbMainImage, castedResponse.getSprites(), false, null);
+        GlideCommon.load(getActivity(), ivLogo, pbMainImage, this.response.getSprites(), false, null);
     }
 
     @Override

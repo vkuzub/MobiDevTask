@@ -1,8 +1,9 @@
 package com.mobidevtask.ui.base.fullinfo;
 
 
+import java.io.Serializable;
 
-public class BaseFullInfoResponse {
+public class BaseFullInfoResponse implements Serializable{
 
     private String name;
     private long id;

@@ -26,7 +26,8 @@ public class PokemonListFragment extends BaseMVPListFragment<PokemonListMVP.View
 
     @Override
     public void initAdapter() {
-        adapter = new PokemonsAdapter();
+        if (adapter == null)
+            adapter = new PokemonsAdapter();
     }
 
     @Override
